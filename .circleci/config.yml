@@ -13,4 +13,4 @@ jobs:
           command: date
       - run:
           name: Run robot framework
-          command: robot googlesearch.robot
+          command: "robot googlesearch.robot"
