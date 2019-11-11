@@ -1,6 +1,13 @@
-test:
-    override:
-      - pybot -n non-critical -d "robot_results" -o "../discard/output.xml" ./selenium
-general:
-    gartifacts:
-      - "robot_results"
+version: 2
+jobs:
+  build:
+    docker:
+      - image: debian:stretch
+    steps:
+      - checkout
+      - run:
+          override:
+            - pybot -n non-critical -d "robot_results" -o "../discard/output.xml" ./selenium
+      - general:
+          gartifacts:
+            - "robot_results"
