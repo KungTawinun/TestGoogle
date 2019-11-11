@@ -8,6 +8,6 @@ jobs:
       - run:
           override:
             - pybot -n non-critical -d "robot_results" -o "../discard/output.xml" ./selenium
-      - general:
+          general:
           gartifacts:
             - "robot_results"
