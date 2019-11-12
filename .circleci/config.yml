@@ -1,8 +1,17 @@
-version: 2
-test:
-  override:
-    - pybot -n non-critical -d "robot_results" -o "../discard/output.xml" ./selenium
-general:
-  artifacts:
-    - "robot_results"
+version: 2.1
 
+orbs:
+  win: circleci/windows@1.0.0
+
+jobs:
+  build:
+    executor: win/vs2019
+    steps:
+      - run:
+          name: Testing application
+          command: cd .circleci
+          no_output_timeout: 30m
+          environment:
+            FOO: bar
+
+      - run: robot -d ./selenium/googlesearch.robot
