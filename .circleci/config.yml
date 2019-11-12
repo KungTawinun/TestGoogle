@@ -21,7 +21,7 @@ jobs:
             name: run tests
             command: |
               . venv/bin/activate
-              robot ./selenium/googlesearch.robot
+              robot -d test-reports ./selenium/googlesearch.robot
 
         - store_artifacts:
             path: test-reports/
