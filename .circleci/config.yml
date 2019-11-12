@@ -1,7 +1,7 @@
 version: 2
 jobs:
   override: 
-    - robot -n non-critical -d "robot_results" -o "../discard/output.xml" ./selenium
+    - robot -d ./selenium/googlesearch.robot
 general:
   artifacts:
     - "robot_results"
