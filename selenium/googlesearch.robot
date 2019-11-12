@@ -11,6 +11,7 @@ ${Browser}    chrome
 *** Keywords ***
 Open website
    Open Browser   url=${Url}   browser=${Browser}   
+   
 Enter Keyword
     Input Text   name=q    Dog
     sleep   3
@@ -18,6 +19,7 @@ Enter button for search
     Click Button   name=btnK
     Wait Until Page Contains   List of Dog Breeds
     sleep   3
+    Capture Page Screenshot
     [Teardown]    Close Browser
 
 
