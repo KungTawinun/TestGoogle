@@ -1,4 +1,3 @@
-pip install --upgrade pip
 robotframework
 robotframework-selenium2library
 robotframework-requests
