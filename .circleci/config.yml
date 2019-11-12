@@ -1,15 +1,15 @@
 version: 2.1
 
-orbs:
-  win: circleci/windows@1.0.0
-
-jobs:
-  build:
-    executor: win/vs2019
-    steps:
-      - run:
-          name: Testing application
-          command: robot -d ./selenium/googlesearch.robot
-          no_output_timeout: 30m
-          environment:
-            FOO: bar
+machine:
+  python:
+    # Python version to use - Selenium requires python 3.0 and above
+    version: pypy-3.6.0orbs:
+dependencies:
+  pre:
+    - pip install selenium
+    - pip install robotframework
+    - pip install robotframework-selenium2library
+    - pip install robotframework-requests
+test:
+  override:
+    - robot -d ./selenium/googlesearch.robot
