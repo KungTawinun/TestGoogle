@@ -1,8 +1,6 @@
 robotframework
 robotframework-selenium2library
 robotframework-requests
-install sst==0.2.4
-install splinter
 pylint == 2.4.3
 pytest == 5.2.2
 pytest-html == 2.0.0
