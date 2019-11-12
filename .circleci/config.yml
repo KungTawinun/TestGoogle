@@ -1,11 +1,7 @@
 version: 2
 jobs:
-  build:
-    docker:
-      - image: debian:stretch
-    steps:
-    override:
-      - pybot -n non-critical -d "robot_results" -o "../discard/output.xml" ./selenium
-    general:
-      artifacts:
-         - "robot_results"
+  override: 
+    - pybot -n non-critical -d "robot_results" -o "../discard/output.xml" ./selenium
+general:
+  artifacts:
+    - "robot_results"
