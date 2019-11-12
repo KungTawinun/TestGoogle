@@ -1,3 +1,7 @@
 robotframework
 robotframework-selenium2library
 robotframework-requests
+pylint == 2.4.3
+pytest == 5.2.2
+pytest-html == 2.0.0
+flask == 1.0.0
