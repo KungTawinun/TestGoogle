@@ -1,7 +1,8 @@
 version: 2
-jobs:
-  override: 
-    - robot -d ./selenium/googlesearch.robot
+test:
+  override:
+    - pybot -n non-critical -d "robot_results" -o "../discard/output.xml" ./selenium
 general:
   artifacts:
     - "robot_results"
+
