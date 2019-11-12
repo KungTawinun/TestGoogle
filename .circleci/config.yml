@@ -9,9 +9,7 @@ jobs:
     steps:
       - run:
           name: Testing application
-          command: cd .circleci
+          command: robot -d ./selenium/googlesearch.robot
           no_output_timeout: 30m
           environment:
             FOO: bar
-
-      - run: robot -d ./selenium/googlesearch.robot
