@@ -1,14 +1,10 @@
 version: 2
-nightly:
-    triggers: #use the triggers key to indicate a scheduled build
-      - schedule:
-          cron: "40 16 * * *" # use cron syntax to set the schedule
-          filters:
-            branches:
-              only:
-                - master
 jobs:
   build:
+      nightly:
+        triggers: #use the triggers key to indicate a scheduled build
+          - schedule:
+            cron: "10 17 * * *" # use cron syntax to set the schedule
       docker:
         - image: circleci/python:3.6.2-stretch-browsers
       steps:
