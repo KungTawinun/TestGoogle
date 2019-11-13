@@ -32,3 +32,19 @@ jobs:
           destination: test-reports
       - store_test_results:
           path: test-reports/
+
+workflows:
+  version: 2
+  commit:
+    jobs:
+      - build
+  nightly:
+    triggers:
+      - schedule:
+          cron: "30 17 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - build
