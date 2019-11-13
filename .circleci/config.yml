@@ -5,9 +5,7 @@ jobs:
       - image: circleci/python:3.6.2-stretch-browsers
     steps:
       - checkout
-      - run:
-          name: Create test-reports directory
-          command: mkdir test-reports
+      - run: mkdir test-reports
       - run:
           name: Install Python Dependencies
           command: |
@@ -18,33 +16,15 @@ jobs:
           paths:
             - ./venv
           key: v1-dependencies-{{ checksum "./.circleci/requirements.txt" }}
-  test:
-    docker:
-      - image: circleci/python:3.6.2-stretch-browsers
-    steps:
+      
       - run:
           name: run tests
           command: |
             . venv/bin/activate
             robot -d test-reports ./selenium/googlesearch.robot
+
       - store_artifacts:
           path: test-reports/
           destination: test-reports
       - store_test_results:
           path: test-reports/
-workflows:
-  version: 2
-  commit:
-    jobs:
-      - build
-      - test
-  nightly:
-    triggers:
-      - schedule:
-          cron: "1 * * * *"
-          filters:
-            branches:
-              only:
-                - master
-    jobs:
-      - test
